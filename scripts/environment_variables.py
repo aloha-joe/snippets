@@ -1,4 +1,6 @@
 import os
 
-some_text = os.environ['LOCAL_KEY']
-print(f'{some_text}_hfvd')
+if "LOCAL_KEY" in os.environ:
+    print(os.environ['LOCAL_KEY'] + '_hfvd')
+else:
+    print('ValueError')
