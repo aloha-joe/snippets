@@ -1,30 +1,26 @@
 import os
 
 path = '/home/aloha/'
-directory_list = []
-for i in os.listdir(path):
-    directory_list += [i]
 
-def filter_dir (is_file):
+def filter_dir(is_file) -> bool:
     filtered_list = []
-    with os.scandir(path) as listOfEntries:
-        if is_file == True:
-            for entry in listOfEntries:
+    with os.scandir(path) as list_of_entries:
+        for entry in list_of_entries:
+            if is_file:
                 if entry.is_file():
-                    filtered_list += [entry.name]
-        elif is_file == False:
-            for entry in listOfEntries:
+                    filtered_list.append(entry.name)
+            else:
                 if entry.is_dir():
-                    filtered_list += [entry.name]
+                    filtered_list.append(entry.name)
         return filtered_list
-print(filter_dir(True))
+print(filter_dir(0))
 
-def head(ListOfEntries):
-    return ListOfEntries[:5]
-print(head(directory_list))
+def head(list_of_etries):
+    return list_of_etries[:5]
+print(head(os.listdir(path)))
 
-def filter_by_name(ListOfEntries, some_string):
-    for entry in ListOfEntries:
+def filter_by_name(list_of_entries, some_string):
+    for entry in list_of_entries:
         if some_string in entry:
             return entry
-print(filter_by_name(directory_list, 'hist'))
+print(filter_by_name(os.listdir(path), 'hist'))
