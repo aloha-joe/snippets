@@ -3,6 +3,4 @@ with open('/home/aloha/Projects/test.txt') as inf:
     s2 = inf.readline().strip()
 
 with open('/home/aloha/Projects/test.txt', 'a') as ouf:
-    ouf.write(s2)
-    ouf.write('\n')
-    ouf.write(s1)
+    ouf.write(f"{s2}\n{s1}")
