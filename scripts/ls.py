@@ -2,7 +2,7 @@ import os
 
 path = '/home/aloha/'
 
-def filter_dir(is_file) -> bool:
+def filter_dir(is_file: bool) -> bool:
     filtered_list = []
     with os.scandir(path) as list_of_entries:
         for entry in list_of_entries:
@@ -13,7 +13,7 @@ def filter_dir(is_file) -> bool:
                 if entry.is_dir():
                     filtered_list.append(entry.name)
         return filtered_list
-print(filter_dir(0))
+print(filter_dir(1))
 
 def head(list_of_etries):
     return list_of_etries[:5]
